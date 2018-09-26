@@ -9,7 +9,7 @@ import android.util.Log;
 
 import java.io.Serializable;
 
-public class Abogado implements Serializable {
+public class Abogado{
     int numero;
     String nombre, telefono;
     float sueldo;

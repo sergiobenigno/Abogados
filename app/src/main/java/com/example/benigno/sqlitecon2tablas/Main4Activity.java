@@ -11,13 +11,13 @@ public class Main4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
         /*res = new Abogado(this);
-        res = getIntent().getSerializableExtra("Abogado");
+        res = (Abogado) getIntent().getSerializableExtra("Abogado");
         setTitle(res.nombre+"  "+res.telefono);*/
 
         int id= getIntent().getExtras().getInt("id");
         String nombre = getIntent().getExtras().getString("nombre");
-        String telefono = getIntent().getExtras().getString("telefono");
-        float sueldo = getIntent().getExtras().getFloat("sueldo");
-        setTitle(nombre+"  "+telefono);
+        //String telefono = getIntent().getExtras().getString("telefono");
+        //float sueldo = getIntent().getExtras().getFloat("sueldo");
+        setTitle(nombre);
     }
 }

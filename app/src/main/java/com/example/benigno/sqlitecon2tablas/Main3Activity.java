@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class Main3Activity extends AppCompatActivity {
     ListView listita;
@@ -21,15 +22,18 @@ public class Main3Activity extends AppCompatActivity {
         ab = new Abogado(this);
         listita.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int fi, long l) {
                 final Abogado[] s = ab.consulta();
+                final int i = fi;
                 AlertDialog.Builder alerta = new AlertDialog.Builder(Main3Activity.this);
                 alerta.setTitle("Detalle de "+s[i].nombre)
                         .setMessage("id: "+s[i].numero+"\nSueldo: "+s[i].sueldo+"\nTelefono: "
                         +s[i].telefono+"\n¿Deseas modificar/Eliminar registro?")
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
+                            public void onClick(DialogInterface dialogInterface, int ift) {
+                                Toast.makeText(Main3Activity.this,""+s[i].numero+" "+s[i].nombre+" "+s[i].telefono,
+                                        Toast.LENGTH_LONG).show();
                                 Intent i44 = new Intent(Main3Activity.this, Main4Activity.class);
                                 i44.putExtra("id",s[i].numero);
                                 i44.putExtra("nombre",s[i].nombre);
