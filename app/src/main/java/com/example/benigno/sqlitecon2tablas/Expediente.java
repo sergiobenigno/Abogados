@@ -67,4 +67,39 @@ public class Expediente {
         }
         return resultado;
     }
+
+    public boolean eliminar(Expediente expediente){
+        try{
+            SQLiteDatabase tabla = base.getWritableDatabase();
+            String[] data = {expediente.id};
+            long res = tabla.delete("EXPEDIENTE","IDEXPEDIENTE=?",data);
+            tabla.close();
+            if(res==0){
+                return false;
+            }
+        }catch (SQLiteException e){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean actualizar(Expediente expediente){
+        try{
+            SQLiteDatabase tabla = base.getWritableDatabase();
+            ContentValues data = new ContentValues();
+            data.put("DESCRIPCION",expediente.descripcion);
+            data.put("CLIENTE",expediente.cliente);
+            data.put("FECHA",expediente.fecha);
+            data.put("IDABOGADO",expediente.idabogado);
+            String[] clave = {expediente.id};
+            long res = tabla.update("EXPEDIENTE",data,"IDEXPEDIENTE=?",clave);
+            tabla.close();
+            if(res<0){
+                return false;
+            }
+        }catch (SQLiteException e){
+            return false;
+        }
+        return true;
+    }
 }
