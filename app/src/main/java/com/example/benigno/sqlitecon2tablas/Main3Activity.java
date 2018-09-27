@@ -56,7 +56,7 @@ public class Main3Activity extends AppCompatActivity {
         try {
             String nombres[] = {"No hay abogados capturados aun"};
             Abogado[] s = ab.consulta();
-            if (s.length > 0) {
+            if (s!=null) {
                 nombres = new String[s.length];
                 for (int i = 0; i < nombres.length; i++) {
                     nombres[i] = s[i].nombre;

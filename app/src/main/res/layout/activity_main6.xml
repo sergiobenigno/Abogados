@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main6Activity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expediente"
+        android:id="@+id/idexpediente2"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="descripción"
+        android:layout_height="wrap_content"
+        android:id="@+id/descripcion2"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="nombre cliente"
+        android:layout_height="wrap_content"
+        android:id="@+id/cliente2"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="fecha"
+        android:inputType="date"
+        android:layout_height="wrap_content"
+        android:id="@+id/fecha2"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/abogado2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/modificarexpediente"
+        android:text="modificar"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eliminarexpediente"
+        android:text="eliminar"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/patras"
+        android:text="regresar"/>
+
+</LinearLayout>
