@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main5Activity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expediente"
+        android:id="@+id/idexpediente"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="descripción"
+        android:layout_height="wrap_content"
+        android:id="@+id/descripcion"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="nombre cliente"
+        android:layout_height="wrap_content"
+        android:id="@+id/cliente"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="fecha"
+        android:inputType="date"
+        android:layout_height="wrap_content"
+        android:id="@+id/fecha"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/abogado"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/guardarexpediente"
+        android:text="guardar"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/regresarexpediente"
+        android:text="regresar"/>
+</LinearLayout>

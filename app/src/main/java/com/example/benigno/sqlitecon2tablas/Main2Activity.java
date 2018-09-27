@@ -9,9 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
     EditText clave;
@@ -25,12 +27,14 @@ public class Main2Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        lista = findViewById(R.id.lista);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent i = new Intent(Main2Activity.this, Main5Activity.class);
+                startActivity(i);
             }
         });
 
@@ -53,6 +57,23 @@ public class Main2Activity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    protected void onStart(){
+        super.onStart();
+        Expediente expe = new Expediente(this);
+        Expediente expedientes[] = expe.consulta();
+        if(expedientes.length==0){
+            Toast.makeText(this,"NO HAY EXPEDIENTES",Toast.LENGTH_LONG).show();
+            return;
+        }
+        String NoExp[] = new String[expedientes.length];
+        for(int i=0; i<NoExp.length; i++){
+            NoExp[i] = expedientes[i].id+"\n"+expedientes[i].cliente;
+        }
+        ArrayAdapter<String> adap = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,NoExp);
+        lista.setAdapter(adap);
+
     }
 
 }

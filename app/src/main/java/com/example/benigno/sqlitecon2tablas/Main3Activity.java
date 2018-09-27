@@ -53,14 +53,20 @@ public class Main3Activity extends AppCompatActivity {
 
     protected void onStart(){
         super.onStart();
+        try {
+            String nombres[] = {"No hay abogados capturados aun"};
+            Abogado[] s = ab.consulta();
+            if (s.length > 0) {
+                nombres = new String[s.length];
+                for (int i = 0; i < nombres.length; i++) {
+                    nombres[i] = s[i].nombre;
+                }
+            }
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
+                    this, android.R.layout.simple_list_item_1, nombres);
+            listita.setAdapter(adaptador);
+        } catch (Exception e){
 
-        Abogado[] s = ab.consulta();
-        String nombres[] = new String[s.length];
-        for(int i=0; i<nombres.length; i++){
-            nombres[i] = s[i].nombre;
         }
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
-                this,android.R.layout.simple_list_item_1,nombres);
-        listita.setAdapter(adaptador);
     }
 }
