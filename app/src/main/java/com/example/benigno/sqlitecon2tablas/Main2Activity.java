@@ -50,19 +50,21 @@ public class Main2Activity extends AppCompatActivity {
 
 
                 alerta.setTitle("Detalle de "+expedientes[pos].cliente)
-                        .setMessage("Descripcion: "+expedientes[pos].descripcion+"\nfecha: "+expedientes[pos].fecha
+                        .setMessage("Descripcion: "+expedientes[pos].descripcion+"\nID: "+expedientes[pos].id
                                 +"\n¿Deseas modificar/Eliminar registro?")
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int ift) {
 
-                                Intent i44 = new Intent(Main2Activity.this, Main6Activity.class);
-                                i44.putExtra("id",expedientes[pos].id);
-                                i44.putExtra("descripcion",expedientes[pos].descripcion);
-                                i44.putExtra("cliente",expedientes[pos].cliente);
-                                i44.putExtra("fecha",expedientes[pos].fecha);
-                                i44.putExtra("idabogado",expedientes[pos].idabogado);
-                                startActivity(i44);
+                                Intent i22 = new Intent(Main2Activity.this, Main6Activity.class);
+                                i22.putExtra("id",expedientes[pos].id);
+                                i22.putExtra("descripcion",expedientes[pos].descripcion);
+                                i22.putExtra("cliente",expedientes[pos].cliente);
+                                i22.putExtra("fecha",expedientes[pos].fecha);
+                                i22.putExtra("idabogado",expedientes[pos].idabogado);
+
+                                startActivity(i22);
+                                dialogInterface.dismiss();
                             }
                         }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
